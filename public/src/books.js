@@ -13,6 +13,8 @@ let allBooks = [checkedOut, returned];
 return allBooks;
 }
 
+
+//Helper function
 function findAccountById(accounts, id) {
   return accounts.find((act) => act.id === id);
 }
@@ -20,6 +22,7 @@ function findAccountById(accounts, id) {
 function getBorrowersForBook(book, accounts) {
   let acts = book.borrows;
   let result = acts.map((act) => {
+    //calling helper function
     const accInfo = findAccountById(accounts,act.id);
     const newAct = {
       ...act,
